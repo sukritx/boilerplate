@@ -1,16 +1,12 @@
-// server/server.ts
+// server/index.ts
 import app from './app';
 import connectDB from './config/db';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const PORT = process.env.PORT || 3000;
+import { config } from './config/config';
 
 const startServer = async () => {
   await connectDB();
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  app.listen(config.port, () => {
+    console.log(`Server running in ${config.env} mode on port ${config.port}`);
   });
 };
 

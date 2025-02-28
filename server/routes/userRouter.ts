@@ -4,6 +4,6 @@ import { getUsers } from '../controllers';
 
 const router = Router();
 
-router.get('/users', getUsers);
+router.get('/', getUsers);
 
 export default router;

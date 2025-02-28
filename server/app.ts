@@ -3,13 +3,18 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import userRouter from './routes/userRouter';
 import { errorHandler } from './middleware/errorHandler';
+import { config } from './config/config';
 
 const app: Application = express();
 
-app.use(cors()); // Allow frontend requests
+// Configure CORS with settings from config
+app.use(cors({
+  origin: config.cors.origin
+}));
+
 app.use(express.json()); // Parse JSON bodies
 
-app.use('/api', userRouter); // Mount API routes
+app.use('/users/v1', userRouter); // Mount API routes
 
 // Error handling middleware
 app.use(errorHandler);
