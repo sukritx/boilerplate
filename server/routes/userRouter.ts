@@ -1,6 +1,6 @@
-// server/routes/api.ts
+// server/routes/userRouter.ts
 import { Router } from 'express';
-import { getUsers } from '../controllers/userController';
+import { getUsers } from '../controllers';
 
 const router = Router();
 
